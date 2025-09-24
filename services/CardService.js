@@ -1,9 +1,15 @@
-const pool = require("./dbConexion");
+const pool = require("../dbConexion");
 
 class CardService {
     constructor() { }
 
-    // Listar todas las cards
+
+    /**
+* lista todas las cartas con sus etiquetas.
+*
+* @returns {JSON} - Devuelve un json con todas las cartas.
+* @throws {Error} - Lanza un error si la operación con la base de datos falla.
+*/
     async listar() {
         try {
             const result = await pool.query("SELECT c.id, c.pregunta, c.respuesta, JSON_AGG(e.nombre) AS etiquetas FROM cards c LEFT JOIN card_etiquetas ce ON c.id = ce.card_id LEFT JOIN etiquetas e ON ce.etiqueta_id = e.id GROUP BY c.id, c.pregunta, c.respuesta;");

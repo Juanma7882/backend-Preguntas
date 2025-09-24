@@ -1,11 +1,16 @@
 // index.js
-const http = require('http');
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('¡Hola Mundo desde Node.js!');
-});
+const express = require("express")
+const { obtenerPreguntas } = require("./controllers/preguntasController");
+const app = express();
+const PORT = 3000;
 
-server.listen(3000, () => {
-    console.log('Servidor escuchando en http://localhost:3000');
+// Middleware para parsear JSON en las request
+app.use(express.json());
+
+// Ruta que usa tu controlador
+app.get("/controllers", obtenerPreguntas);
+
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
