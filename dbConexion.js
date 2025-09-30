@@ -1,3 +1,4 @@
+// importante instalar los paquetes conrrespondientes para la base de datos npm
 const { Pool } = require("pg");
 
 const pool = new Pool({

@@ -4,7 +4,7 @@ class CardService {
     constructor() { }
 
 
-    /**
+    /**@
 * lista todas las cartas con sus etiquetas.
 *
 * @returns {JSON} - Devuelve un json con todas las cartas.
