@@ -38,8 +38,14 @@ const obtenerPreguntas = async (req, res) => {
 }
 
 
-const EliminarPregunta = async (id) => {
-
+const eliminarPregunta = async (id) => {
+    try {
+        const resultado = await CardService.eliminar(id);
+        return resultado;
+    } catch (error) {
+        console.error("Error en eliminarPregunta:", error);
+        throw error;
+    }
 };
 
 /**
@@ -95,7 +101,21 @@ const crearPregunta = async (req, res) => {
 };
 
 
-const EditarPregunta = async (pregunta) => {
+const editarPregunta = async (req, res) => {
+    try {
+        const { pregunta, respuesta, etiquetas } = req
+
+        if (!pregunta || respuesta) {
+
+        }
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Ocurrió un error al crear la editar la pregunta",
+            data: null
+        });
+    }
 };
 
-module.exports = { obtenerPreguntas, crearPregunta };
+module.exports = { obtenerPreguntas, crearPregunta, eliminarPregunta };

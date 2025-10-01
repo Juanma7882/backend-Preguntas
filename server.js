@@ -1,5 +1,5 @@
-const preguntasRoutes = require("./routes/preguntas");
+// const preguntasRoutes = require("./routes/preguntas");
 
-app.use("/api/preguntas", preguntasRoutes);
+// app.use("/api/preguntas", preguntasRoutes);
 
-module.exports = { preguntasRoutes };
+// module.exports = { preguntasRoutes };

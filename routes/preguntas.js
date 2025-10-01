@@ -1,10 +1,10 @@
 const express = require("express");
-const { obtenerPreguntas } = require("../controllers/preguntasController");
-const { crearPregunta } = require("../controllers/preguntasController");
+const { obtenerPreguntas, eliminarPregunta, crearPregunta } = require("../controllers/preguntasController");
 
 const router = express.Router();
 
 router.get("/", obtenerPreguntas);
 router.post("/", crearPregunta);
+router.post("/", eliminarPregunta);
 
 module.exports = router;

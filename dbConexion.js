@@ -17,3 +17,12 @@ pool.connect()
   .catch(err => console.error('❌ Error de conexión', err.stack));
 
 module.exports = pool;
+
+
+// const pool = new Pool({
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'bdpreguntas',
+//   user: 'postgres',
+//   password: 'admin'  // ← Ahora esta contraseña está correcta
+// });
