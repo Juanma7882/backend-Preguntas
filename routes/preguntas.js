@@ -1,7 +1,10 @@
 const express = require("express");
-const router = express.Router();
 const { obtenerPreguntas } = require("../controllers/preguntasController");
+const { crearPregunta } = require("../controllers/preguntasController");
+
+const router = express.Router();
 
 router.get("/", obtenerPreguntas);
+router.post("/", crearPregunta);
 
 module.exports = router;

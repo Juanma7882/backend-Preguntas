@@ -1,5 +1,14 @@
 const pool = require("../dbConexion");
 
+
+/**@
+* esta clase tiene todas las funciones que manipulan las tarjetas en la base de datos
+*
+* @returns {JSON} - Listar de vuelve las etiquetas y las tarjetas.
+* @returns {JSON} - Devuelve un json con todas las cartas.
+* @returns {JSON} - Devuelve un json con todas las cartas.
+* @returns {JSON} - Devuelve un json con todas las cartas.
+*/
 class CardService {
     constructor() { }
 

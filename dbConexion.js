@@ -6,7 +6,7 @@ const pool = new Pool({
   port: 5432,
   database: 'bdpreguntas',
   user: 'postgres',
-  password: 'admin'
+  password: 'admin'  // ← Ahora esta contraseña está correcta
 });
 
 pool.connect()

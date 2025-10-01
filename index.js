@@ -1,18 +1,27 @@
-console.log("tamoss")
 const express = require("express");
-const { obtenerPreguntas } = require("./controllers/preguntasController");
+const cors = require("cors");
+const preguntasRoutes = require("./routes/preguntas");
 
 const app = express();
-const PORT = 3000;
 
+// Middlewares
+app.use(cors());
 app.use(express.json());
 
-app.get("/preguntas", obtenerPreguntas);
+// Rutas
+app.use("/api/preguntas", preguntasRoutes);
 
-
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+// Ruta raíz de prueba
+app.get("/", (req, res) => {
+    res.json({
+        message: "¡Servidor funcionando correctamente!",
+        api: "Visita /api/preguntas para usar la API"
+    });
 });
 
+const PORT = process.env.PORT || 3000;
 
-// module.exports = { obtenerPreguntas };
+app.listen(PORT, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`📡 API disponible en http://localhost:${PORT}/api/preguntas`);
+});
